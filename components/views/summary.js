@@ -1,4 +1,5 @@
 import React, {StyleSheet, Text, View} from 'react-native';
+import SummaryChart from '../charts/summaryChart';
 
 const
     styles = StyleSheet.create({
@@ -14,6 +15,7 @@ const
             return (
                 <View style={styles.container}>
                     <Text> Summary Page </Text>
+                    <SummaryChart/>
                 </View>
             );
         }

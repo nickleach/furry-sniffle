@@ -33,11 +33,12 @@ const
 sphDemo = React.createClass({
     getInitialState() {
         return {
-            page: 'summary'
+            page: 'summary',
+            subhead: 'ENTERPRISE PERFORMANCE SUMMARY'
         }
     },
-    _updateRoute({ page }) {
-        this.setState({ page });
+    _updateRoute( p, sh ) {
+        this.setState({ page : p, subhead : sh});
     },
     render() {
         return (
@@ -50,7 +51,7 @@ sphDemo = React.createClass({
                                     changePage={this._updateRoute}/>}
                                     page={this.state.page}
                                     menuPosition="right">
-                    <MainMenu page={this.state.page} />
+                    <MainMenu page={this.state.page} subhead={this.state.subhead}/>
                 </SideMenu>
             </SideMenu>
         );

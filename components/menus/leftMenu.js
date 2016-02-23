@@ -51,13 +51,13 @@ const
             page: React.PropTypes.string
         },
         _goToSummary() {
-            this.props.changePage({page: 'summary'});
+            this.props.changePage('summary', 'ENTERPRISE PERFORMANCE SUMMARY');
         },
         _goToAnalytics() {
-            this.props.changePage({page: 'analytics'})
+            this.props.changePage('analytics', 'ANALYTICS')
         },
         _goToSurvey() {
-            this.props.changePage({page: 'survey'})
+            this.props.changePage('survey', 'SURVEYS')
         },
         render() {
             let

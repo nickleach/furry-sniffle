@@ -23,6 +23,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		AEF978621C7CC00C00BDB4D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEF978611C7CC00C00BDB4D2 /* Images.xcassets */; };
 		AEF978661C7CC68300BDB4D2 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF978651C7CC68300BDB4D2 /* FontAwesome.ttf */; };
+		ECA836E51C7D0C3700125A5B /* Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA836E41C7D0C3700125A5B /* Orientation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,8 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		AEF978611C7CC00C00BDB4D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = sphDemo/Images.xcassets; sourceTree = "<group>"; };
 		AEF978651C7CC68300BDB4D2 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		ECA836E31C7D0C3700125A5B /* Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Orientation.h; sourceTree = "<group>"; };
+		ECA836E41C7D0C3700125A5B /* Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Orientation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +293,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				ECA836E21C7D0C3700125A5B /* RCTOrientation */,
 				13B07FAE1A68108700A75B9A /* sphDemo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* sphDemoTests */,
@@ -306,6 +310,16 @@
 				00E356EE1AD99517003FC87E /* sphDemoTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		ECA836E21C7D0C3700125A5B /* RCTOrientation */ = {
+			isa = PBXGroup;
+			children = (
+				ECA836E31C7D0C3700125A5B /* Orientation.h */,
+				ECA836E41C7D0C3700125A5B /* Orientation.m */,
+			);
+			name = RCTOrientation;
+			path = "../node_modules/react-native-orientation/RCTOrientation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -548,6 +562,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				ECA836E51C7D0C3700125A5B /* Orientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

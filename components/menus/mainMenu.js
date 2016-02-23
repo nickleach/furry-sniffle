@@ -3,6 +3,8 @@ import Summary from '../views/summary';
 import Analytics from '../views/analytics';
 import Survey from '../views/survey';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Orientation from 'react-native-orientation';
+console.dir(Orientation);
 
 const
     _styles = StyleSheet.create({
@@ -42,6 +44,43 @@ const
         },
     }),
     _component = React.createClass({
+        _orientationDidChange(orientation) {
+            if (orientation == 'LANDSCAPE') {
+                console.log('did-change-landscape');
+            } else {
+                console.log('did-change-else');
+            }
+        },
+
+        componentWillMount() {
+            //The getOrientation method is async. It happens sometimes that
+            //you need the orientation at the moment the js starts running on device.
+            //getInitialOrientation returns directly because its a constant set at the
+            //beginning of the js code.
+            Orientation.getOrientation((err,orientation)=> {
+                console.log("Current Device Orientation: ", orientation);
+                if (orientation === 'PORTRAIT') {
+                    console.log('will-mount-portrait');
+                } else {
+                    console.log('mount-else');
+                }
+            });
+        },
+
+        componentDidMount() {
+            // Orientation.lockToPortrait(); //this will lock the view to Portrait
+            //Orientation.lockToLandscape(); //this will lock the view to Landscape
+            Orientation.unlockAllOrientations(); //this will unlock the view to all Orientations
+
+            Orientation.addOrientationListener(this._orientationDidChange);
+        },
+
+        componentWillUnmount() {
+            Orientation.getOrientation((err,orientation)=> {
+                console.log("Current Device Orientation: ", orientation);
+            });
+            Orientation.removeOrientationListener(this._orientationDidChange);
+        },
         propTypes: {
             page: React.PropTypes.string.isRequired,
             subhead: React.PropTypes.string.isRequired,

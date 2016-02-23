@@ -1,6 +1,7 @@
 import React, {StyleSheet, View} from 'react-native';
 import Summary from '../views/summary';
 import Analytics from '../views/analytics';
+import Survey from '../views/survey';
 
 const
     _styles = StyleSheet.create({
@@ -19,6 +20,9 @@ const
                     break;
                 case 'analytics':
                     return <Analytics />
+                    break;
+                case 'survey':
+                    return <Survey />
                     break;
                 default: <Summary />
 

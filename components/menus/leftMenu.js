@@ -9,15 +9,24 @@ const
             flex: 1,
         },
         button: {
-            marginBottom: 10
+            marginBottom: 10,
+            width: 100,
+            padding: 5,
+            borderRadius: 8,
         },
         buttonText: {
             fontSize: 18,
-            color: '#A2A0A1',
-            fontWeight: '200'
+            fontWeight: '200',
+        },
+        activeButtonText: {
+            color: 'white',
         },
         activeButton: {
-
+            backgroundColor: '#FC9845',
+            marginBottom: 10,
+            width: 120,
+            padding: 5,
+            borderRadius: 8,
         },
         headerText: {
             fontSize: 20,
@@ -25,17 +34,21 @@ const
             fontStyle: 'italic',
             fontWeight: '500',
             textAlign: 'right',
-            marginLeft: 10
+            marginLeft: 10,
+        },
+        inactiveButtonText: {
+            color: '#A2A0A1',
         },
         header: {
             flexWrap: 'nowrap',
             flexDirection: 'row',
-            marginBottom: 10
-        }
+            marginBottom: 20,
+        },
     }),
     _component = React.createClass({
         propTypes: {
-            changePage: React.PropTypes.func.isRequired
+            changePage: React.PropTypes.func.isRequired,
+            page: React.PropTypes.string
         },
         _goToSummary() {
             this.props.changePage({page: 'summary'});
@@ -43,8 +56,19 @@ const
         _goToAnalytics() {
             this.props.changePage({page: 'analytics'})
         },
+        _goToSurvey() {
+            this.props.changePage({page: 'survey'})
+        },
         render() {
-            return(
+            let
+                summaryActive = this.props.page === 'summary' ? _styles.activeButton : _styles.button,
+                analyticsActive = this.props.page === 'analytics' ? _styles.activeButton : _styles.button,
+                surveyActive = this.props.page === 'survey' ? _styles.activeButton : _styles.button,
+                summaryButtonText = this.props.page === 'summary' ? _styles.activeButtonText : _styles.inactiveButtonText,
+                analyticsButtonText = this.props.page === 'analytics' ? _styles.activeButtonText : _styles.inactiveButtonText,
+                surveyButtonText = this.props.page === 'survey' ? _styles.activeButtonText : _styles.inactiveButtonText;
+
+            return (
                 <View style={_styles.container}>
                     <View style={_styles.header}>
                         <Icon name="compass" size={30} color='#194981'/>
@@ -52,22 +76,22 @@ const
                     </View>
                     <View>
                         <TouchableHighlight
-                            style={_styles.button}
+                            style={summaryActive}
                             onPress={this._goToSummary}
                             underlayColor= '#FC9845'>
-                            <Text style={_styles.buttonText}>Summary</Text>
+                            <Text style={[_styles.buttonText, summaryButtonText]}>Summary</Text>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            style={_styles.button}
+                            style={analyticsActive}
                             onPress={this._goToAnalytics}
                             underlayColor= '#FC9845'>
-                            <Text style={_styles.buttonText}>Analytics</Text>
+                            <Text style={[_styles.buttonText, analyticsButtonText]}>Analytics</Text>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            style={_styles.button}
-                            onPress={this._goToSummary}
+                            style={surveyActive}
+                            onPress={this._goToSurvey}
                             underlayColor= '#FC9845'>
-                            <Text style={_styles.buttonText}>Survey</Text>
+                            <Text style={[_styles.buttonText, surveyButtonText]}>Survey</Text>
                         </TouchableHighlight>
                     </View>
                 </View>

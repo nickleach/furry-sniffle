@@ -42,9 +42,14 @@ sphDemo = React.createClass({
     render() {
         return (
             <SideMenu
-                menu={<LeftMenu changePage={this._updateRoute}/>}
+                menu={<LeftMenu
+                        changePage={this._updateRoute}
+                        page={this.state.page}/>}
                 openMenuOffset={200}>
-                <SideMenu menu={<LeftMenu changePage={this._updateRoute}/>} menuPosition="right">
+                <SideMenu menu={<LeftMenu
+                                    changePage={this._updateRoute}/>}
+                                    page={this.state.page}
+                                    menuPosition="right">
                     <MainMenu page={this.state.page} />
                 </SideMenu>
             </SideMenu>

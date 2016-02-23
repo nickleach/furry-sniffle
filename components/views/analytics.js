@@ -1,12 +1,15 @@
 import React, {StyleSheet, Text, View, TabBarIOS} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const
     styles = StyleSheet.create({
-        tabButton: {
-            borderColor: 'white',
-            borderRadius: 3,
-            borderWidth: 1,
-            borderStyle: 'solid'            
+        wrapper: {
+            borderRadius: 5,
+            marginBottom: 5
+        },
+        button: {
+            backgroundColor: '#eeeeee',
+            padding: 10
         },
         tabContent: {
             flex: 1,
@@ -41,6 +44,13 @@ const
         _renderContent(color, pageText) {
             return(
                 <View style={[styles.tabContent, {backgroundColor: color}]}>
+                    <View style={{backgroundColor: '#296cdc', padding: 10}}>
+                        <Text>
+                            <Icon name="bar-chart" size={25} color="white"/>
+                            <Icon name="pie-chart" size={25} color="white"/>
+                            <Icon name="list" size={25} color="white"/>
+                        </Text>
+                    </View>
                     <Text style={styles.tabText}>{pageText}</Text>
                 </View>
             );
@@ -51,9 +61,11 @@ const
                 <TabBarIOS
                     tintColor="white"
                     barTintColor="#296cdc">
-                    <TabBarIOS.Item
+                    <Icon.TabBarItem
                         title="Analytics"
-                        style={styles.tabButton}
+                        iconName="line-chart"
+                        selectedIconName="line-chart"
+                        iconSize={22}
                         selected={this.state.selectedTab === 'analyticsTab'}
                         onPress={() => {
                             this.setState({
@@ -61,9 +73,12 @@ const
                             });
                         }}>
                         {this._renderContent('#414A8C', 'Analytics Page')}
-                    </TabBarIOS.Item>
-                    <TabBarIOS.Item
+                    </Icon.TabBarItem>
+                    <Icon.TabBarItem
                         title="Disposition Profile"
+                        iconName="tasks"
+                        selectedIconName="tasks"
+                        iconSize={22}
                         selected={this.state.selectedTab === 'dispositionTab'}
                         onPress={() => {
                             this.setState({
@@ -71,9 +86,12 @@ const
                             });
                         }}>
                         {this._renderContent('#e4b600', 'Disposition Profile Page')}
-                    </TabBarIOS.Item>
-                    <TabBarIOS.Item
+                    </Icon.TabBarItem>
+                    <Icon.TabBarItem
                         title="Demographic Profile"
+                        iconName="users"
+                        selectedIconName="users"
+                        iconSize={22}
                         selected={this.state.selectedTab === 'demographicTab'}
                         onPress={() => {
                             this.setState({
@@ -81,7 +99,7 @@ const
                             });
                         }}>
                         {this._renderContent('#ff9d00', 'Demographic Profile Page')}
-                    </TabBarIOS.Item>
+                    </Icon.TabBarItem>
                 </TabBarIOS>
                 // <View style={styles.container}>
                 //     <Text> Analytics Page </Text>

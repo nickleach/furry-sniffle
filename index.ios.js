@@ -7,13 +7,12 @@ import React, {
   Text,
   View
 } from 'react-native';
-import Summary from './components/views/summary';
-import Analytics from './components/views/analytics';
+import MainMenu from './components/menus/mainMenu';
 import SideMenu from 'react-native-side-menu';
 import LeftMenu from './components/menus/leftMenu';
 
 const
-    styles = StyleSheet.create({
+    _styles = StyleSheet.create({
       container: {
         flex: 1,
         justifyContent: 'center',
@@ -37,29 +36,16 @@ sphDemo = React.createClass({
             page: 'summary'
         }
     },
-    _getRoute() {
-        switch (this.state.page) {
-            case 'summary':
-                return <Summary />
-                break;
-            case 'analytics':
-                return <Analytics />
-                break;
-            default: <Summary />
-
-        }
-    },
     _updateRoute({ page }) {
         this.setState({ page });
     },
     render() {
-        const page = this._getRoute();
         return (
             <SideMenu
                 menu={<LeftMenu changePage={this._updateRoute}/>}
                 openMenuOffset={200}>
                 <SideMenu menu={<LeftMenu changePage={this._updateRoute}/>} menuPosition="right">
-                    {page}
+                    <MainMenu page={this.state.page} />
                 </SideMenu>
             </SideMenu>
         );

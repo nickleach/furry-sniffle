@@ -34,11 +34,23 @@ sphDemo = React.createClass({
     getInitialState() {
         return {
             page: 'summary',
-            subhead: 'ENTERPRISE PERFORMANCE SUMMARY'
+            subhead: 'ENTERPRISE PERFORMANCE SUMMARY',
+            leftMenuOpen: false,
+            rightMenuOpen: false
         }
     },
     _updateRoute( p, sh ) {
         this.setState({ page : p, subhead : sh});
+    },
+    _toggleRightMenu() {
+        this.setState({
+            rightMenuOpen: !this.state.rightMenuOpen
+        });
+    },
+    _toggleLeftMenu() {
+        this.setState({
+            leftMenuOpen: !this.state.leftMenuOpen
+        });
     },
     render() {
         return (
@@ -46,12 +58,19 @@ sphDemo = React.createClass({
                 menu={<LeftMenu
                         changePage={this._updateRoute}
                         page={this.state.page}/>}
-                openMenuOffset={200}>
+                openMenuOffset={200}
+                isOpen={this.state.leftMenuOpen}>
                 <SideMenu menu={<LeftMenu
                                     changePage={this._updateRoute}/>}
                                     page={this.state.page}
-                                    menuPosition="right">
-                    <MainMenu page={this.state.page} subhead={this.state.subhead}/>
+                                    menuPosition="right"
+                          openMenuOffset={200}
+                          isOpen={this.state.rightMenuOpen}>
+                    <MainMenu
+                        page={this.state.page}
+                        subhead={this.state.subhead}
+                        toggleRightMenu={this._toggleRightMenu}
+                        toggleLeftMenu={this._toggleLeftMenu}/>
                 </SideMenu>
             </SideMenu>
         );

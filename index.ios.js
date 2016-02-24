@@ -41,6 +41,7 @@ sphDemo = React.createClass({
     },
     _updateRoute( p, sh ) {
         this.setState({ page : p, subhead : sh});
+        this._toggleLeftMenu();
     },
     _toggleRightMenu() {
         this.setState({

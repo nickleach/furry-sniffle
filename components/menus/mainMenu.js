@@ -12,7 +12,6 @@ const
         },
         pageContainer: {
             flex: 1,
-            marginTop: 20,
         },
         titleBar: {
             flexWrap: 'nowrap',
@@ -70,6 +69,7 @@ const
             this.props.toggleRightMenu();
         },
         render() {
+            const page = this._getRoute();
             return (
                 <View style={_styles.mainContainer}>
                     <View style={_styles.titleBar}>
@@ -93,7 +93,7 @@ const
                             backgroundColor='#F5FCFF'/>
                     </View>
                     <View style={_styles.pageContainer}>
-                        {this.props.currentPage}
+                        {page}
                     </View>
                 </View>
             );

@@ -39,13 +39,11 @@ const styles = StyleSheet.create({
 _component = React.createClass({
     render() {
         return (
-            <View style={styles.container}>
                 <RNChart style={styles.chart}
                     chartData={chartData}
                     verticalGridStep={5}
                     xLabels={xLabels}
                  />
-            </View>
         );
     }
 });

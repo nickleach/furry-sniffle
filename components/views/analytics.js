@@ -1,5 +1,6 @@
 import React, {StyleSheet, Text, View, TabBarIOS} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import DispositionChart from './tabs/dispositionTab';
 
 const
     styles = StyleSheet.create({
@@ -51,7 +52,7 @@ const
                             <Icon name="list" size={25} color="white"/>
                         </Text>
                     </View>
-                    <Text style={styles.tabText}>{pageText}</Text>
+                    {pageText}
                 </View>
             );
         },
@@ -72,7 +73,7 @@ const
                                 selectedTab: 'analyticsTab',
                             });
                         }}>
-                        {this._renderContent('#414A8C', 'Analytics Page')}
+                        {this._renderContent('#414A8C', <DispositionChart/>)}
                     </Icon.TabBarItem>
                     <Icon.TabBarItem
                         title="Disposition Profile"
@@ -85,7 +86,7 @@ const
                                 selectedTab: 'dispositionTab',
                             });
                         }}>
-                        {this._renderContent('#e4b600', 'Disposition Profile Page')}
+                        {this._renderContent('#F5FCFF', <DispositionChart/>)}
                     </Icon.TabBarItem>
                     <Icon.TabBarItem
                         title="Demographic Profile"
@@ -98,7 +99,7 @@ const
                                 selectedTab: 'demographicTab',
                             });
                         }}>
-                        {this._renderContent('#ff9d00', 'Demographic Profile Page')}
+                        {this._renderContent('#ff9d00', <DispositionChart/>)}
                     </Icon.TabBarItem>
                 </TabBarIOS>
                 // <View style={styles.container}>

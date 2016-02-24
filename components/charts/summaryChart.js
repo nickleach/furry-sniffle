@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 16,
         left: 4,
-        bottom: 4,
+        bottom: 50,
         right: 16,
     }
 }),
@@ -20,19 +20,22 @@ const styles = StyleSheet.create({
         {
             name: 'BarChart',
             type: 'bar',
-            color:'purple',
             widthPercent: 0.6,
-            data: [30, 1, 1, 2, 3, 5, 21, 13, 21, 34, 55, 30],
+            data: [75, 73.3, 92, 92, 79],
+            showDataPoint: true,
+            dataPointColor: 'black'
         },
     ],
-    xLabels = ['0','1','2','3','4','5','6','7','8','9','10','11'],
+    xLabels = ['Aggregate','80101234 Georgia','80105678 Florida','SPHA Book of Business','National Benchmark'],
 
 _component = React.createClass({
     render() {
         return (
                 <RNChart style={styles.chart}
                     chartData={chartData}
-                    verticalGridStep={5}
+                    showGrid={false}
+                    showAxis={false}
+                    showYAxisLabels={false}
                     xLabels={xLabels}
                  />
         );

@@ -45,7 +45,6 @@ const
             page: React.PropTypes.string.isRequired,
             subhead: React.PropTypes.string.isRequired,
             toggleLeftMenu: React.PropTypes.func.isRequired,
-            toggleRightMenu: React.PropTypes.func.isRequired,
         },
         _getRoute() {
             switch (this.props.page) {
@@ -65,9 +64,6 @@ const
         _toggleLeftMenu() {
             this.props.toggleLeftMenu();
         },
-        _toggleRightMenu() {
-            this.props.toggleRightMenu();
-        },
         render() {
             const page = this._getRoute();
             return (
@@ -85,12 +81,6 @@ const
                         <View style={_styles.subhead}>
                             <Text style={_styles.subheadText}>{this.props.subhead}</Text>
                         </View>
-                        <Icon.Button
-                            name="arrow-right"
-                            size={30}
-                            color='#194981'
-                            onPress={this._toggleRightMenu}
-                            backgroundColor='#F5FCFF'/>
                     </View>
                     <View style={_styles.pageContainer}>
                         {page}

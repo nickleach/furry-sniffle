@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+</head>
+
+<body>
+<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+<script>
+$(document).ready(function () {
+
+  var aggregateCol = 'rgba(153, 196, 228, 1)',
+  projectCol = 'rgba(172, 189, 205, 1)',
+  nationalCol = 'rgba(175, 175, 175, 1)';
+
+    $('#container').highcharts({
+        chart: {
+            type: 'bar',
+            width: 310,
+            height: 200
+        },
+        title: {
+            text: 'GETTING NEEDED CARE',
+            align: 'left',
+            style: {
+              fontSize: '13px',
+              fontWeight: 'bold'
+            }
+        },
+        xAxis: {
+            gridLineColor: null,
+            lineColor: null,
+            categories: ['Aggregate', '80101234 Georgia', '80105678 Florida', 'SPHA Book of Business', 'National Benchmark'],
+            tickmarkPlacement: null,
+            tickLength: 0,
+            labels: {
+              style: {
+                fontSize: '8px',
+                textOverflow: 'none'
+              }
+            }
+        },
+        credits: {
+          enabled: false
+        },
+        plotOptions: {
+            series: {
+              colorByPoint: true
+            },
+            bar: {
+              dataLabels: {
+                  enabled: true,
+                  align: 'left',
+                  inside: true,
+                  color: 'white',
+                  style: {
+                    fontSize: '10px',
+                    textShadow: null
+                  }
+              }
+            }
+        },
+        yAxis: {
+          gridLineColor: null,
+          plotBands: [{
+            color: 'rgba(255, 204, 0, 0.7)',
+            from: 75,
+            to: 90,
+            zIndex: 5
+          },
+          {
+            color: 'rgba(115, 208, 127, 0.7)',
+            from: 90,
+            to: 100,
+            zIndex: 5
+          }],
+          labels: {
+            enabled: false
+          },
+          title: {
+            enabled: false
+          }
+        },
+        series: [{
+          showInLegend: false,
+          data: [76.0, 85.0, 95.0, 92.0, 80.0],
+          colors: [aggregateCol, projectCol, projectCol, projectCol, nationalCol],
+          groupPadding: 0,
+          pointPadding: 0.1,
+          borderColor: null
+        }]
+    });
+});
+</script>
+</body>
+
+</html>

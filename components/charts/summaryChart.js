@@ -1,43 +1,27 @@
-import React, { StyleSheet, View, Component } from 'react-native';
-import RNChart from 'react-native-chart';
+import React, { StyleSheet, View, Component, WebView } from 'react-native';
 
-const styles = StyleSheet.create({
+
+const _styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
+        flexDirection: 'column',
         backgroundColor: 'white',
-    },
-    chart: {
-        position: 'absolute',
-        top: 16,
-        left: 4,
-        bottom: 50,
-        right: 16,
-    }
+        height:500,
+        width: 500
+  },
 }),
-    chartData = [
-        {
-            name: 'BarChart',
-            type: 'bar',
-            widthPercent: 0.6,
-            data: [75, 73.3, 92, 92, 79],
-            showDataPoint: true,
-            dataPointColor: 'black'
-        },
-    ],
-    xLabels = ['Aggregate','80101234 Georgia','80105678 Florida','SPHA Book of Business','National Benchmark'],
-
 _component = React.createClass({
+    componentDidMount() {
+
+      },
     render() {
         return (
-                <RNChart style={styles.chart}
-                    chartData={chartData}
-                    showGrid={false}
-                    showAxis={false}
-                    showYAxisLabels={false}
-                    xLabels={xLabels}
-                 />
+            <View style={_styles.container}>
+                <WebView
+                    ref="webviewbridge"
+                    source={require('../../templates/summaryChart.html')}/>
+            </View>
         );
     }
 });

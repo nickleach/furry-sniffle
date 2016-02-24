@@ -24,15 +24,6 @@ const styles = StyleSheet.create({
             widthPercent: 0.6,
             data: [30, 1, 1, 2, 3, 5, 21, 13, 21, 34, 55, 30],
         },
-        {
-            name: 'LineChart',
-            color: 'gray',
-            lineWidth: 2,
-            highlightIndices: [1, 2],   // The data points at indexes 1 and 2 will be orange
-            highlightColor: 'orange',
-            showDataPoint: true,
-            data: [10, 12, 14, 25, 31, 52, 41, 31, 52, 66, 22, 11],
-        }
     ],
     xLabels = ['0','1','2','3','4','5','6','7','8','9','10','11'],
 

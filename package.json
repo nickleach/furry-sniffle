@@ -1,0 +1,16 @@
+{
+  "name": "sphDemo",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "react-native": "^0.20.0",
+    "react-native-chart": "^0.1.10",
+    "react-native-side-menu": "^0.18.0",
+    "react-native-vector-icons": "^1.2.1",
+    "react-native-webview-bridge": "^0.20.0",
+    "react-timer-mixin": "^0.13.3"
+  }
+}
